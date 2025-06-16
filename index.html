@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>حساب جرعات الأدوية للأطفال</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9f9f9;
+      padding: 20px;
+      direction: rtl;
+    }
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: center;
+    }
+    th {
+      background-color: #3498db;
+      color: white;
+    }
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+    input[type="number"] {
+      width: 60px;
+      padding: 5px;
+      font-size: 16px;
+    }
+    button {
+      padding: 5px 10px;
+      font-size: 14px;
+      background-color: #2980b9;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>حساب جرعات الأدوية الشائعة للأطفال</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>الدواء</th>
+        <th>الجرعة</th>
+        <th>الوزن (كجم)</th>
+        <th>الجرعة المحسوبة</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Paracetamol</td>
+        <td>15 مجم/كجم</td>
+        <td><input type="number" id="w1" min="1" onchange="calcDose(1, 15, 'mg')"></td>
+        <td id="r1">—</td>
+      </tr>
+      <tr>
+        <td>Ibuprofen</td>
+        <td>10 مجم/كجم</td>
+        <td><input type="number" id="w2" min="1" onchange="calcDose(2, 10, 'mg')"></td>
+        <td id="r2">—</td>
+      </tr>
+      <tr>
+        <td>Ondansetron</td>
+        <td>0.15 مجم/كجم (الحد الأقصى 8 مجم)</td>
+        <td><input type="number" id="w3" min="1" onchange="calcDoseWithMax(3, 0.15, 8)"></td>
+        <td id="r3">—</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <script>
+    function calcDose(id, factor, unit) {
+      const w = document.getElementById('w' + id).value;
+      if (w && w > 0) {
+        const dose = (w * factor).toFixed(1);
+        document.getElementById('r' + id).textContent = dose + ' ' + unit;
+      } else {
+        document.getElementById('r' + id).textContent = '—';
+      }
+    }
+    function calcDoseWithMax(id, factor, maxDose) {
+      const w = document.getElementById('w' + id).value;
+      if (w && w > 0) {
+        let dose = w * factor;
+        if (dose > maxDose) dose = maxDose;
+        document.getElementById('r' + id).textContent = dose.toFixed(2) + ' mg';
+      } else {
+        document.getElementById('r' + id).textContent = '—';
+      }
+    }
+  </script>
+</body>
+</html>
