@@ -1,107 +1,145 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>دواؤك في جيبك</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body { font-family: 'Tahoma', sans-serif; padding: 20px; direction: rtl; background: #f9f9f9; }
-    h1 { color: #0066cc; }
-    .search-box { margin-bottom: 20px; }
-    input, select, button { padding: 10px; margin: 5px 0; width: 100%; }
-    .card { background: white; padding: 20px; border-radius: 15px; box-shadow: 0 0 10px #ccc; margin-bottom: 20px; }
-    .footer { font-size: 12px; color: #666; margin-top: 40px; text-align: center; }
-    .fluid-calc input { width: 30%; display: inline-block; margin: 5px; }
-    .fluid-calc .result { margin-top: 10px; font-weight: bold; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Family Medicine Tools</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background-color: #f4f4f4;
+  color: #333;
+  text-align: center;
+  transition: background-color 0.3s, color 0.3s;
+}
+header {
+  background-color: #004080;
+  color: white;
+  padding: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  position: relative;
+}
+header nav {
+  font-size: 14px;
+  margin-top: 4px;
+}
+.toggle-theme {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 20px;
+}
+h2 {
+  color: #004080;
+  margin-top: 20px;
+}
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 20px;
+}
+.card {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 10px;
+  width: 150px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: 0.3s;
+}
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+.card-icon {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+footer {
+  margin-top: 20px;
+  font-size: 12px;
+  color: #666;
+}
+
+/* Dark mode */
+body.dark {
+  background-color: #121212;
+  color: #ddd;
+}
+body.dark header {
+  background-color: #222;
+}
+body.dark h2 {
+  color: #ddd;
+}
+body.dark .card {
+  background-color: #1e1e1e;
+  color: #ddd;
+  box-shadow: 0 2px 6px rgba(255,255,255,0.05);
+}
+body.dark footer {
+  color: #aaa;
+}
+</style>
 </head>
 <body>
-  <h1>📱 دواؤك في جيبك</h1>
 
-  <div class="search-box">
-    <input type="text" id="searchInput" placeholder="🔍 ابحث عن اسم الدواء..." oninput="searchDrug()">
-  </div>
+<header>
+  👨‍⚕️ Family Medicine Tools
+  <div class="toggle-theme" onclick="toggleTheme()">🌙</div>
+  <nav>
+    <a href="#" style="color:white; text-decoration:none;">Home</a> |
+    <a href="#" style="color:white; text-decoration:none;">About</a>
+  </nav>
+</header>
 
-  <div id="drugInfo" class="card"></div>
+<h2>Welcome</h2>
+<p>This app is a fast access for family medicine doctors.</p>
+<p><strong>Select one of the sections to start:</strong></p>
 
+<div class="container">
   <div class="card">
-    <h3>💧 حاسبة سوائل الطوارئ</h3>
-    <div class="fluid-calc">
-      <input type="number" id="weight" placeholder="💡 الوزن (كجم)">
-      <button onclick="calcFluids()">🔢 احسب</button>
-      <div class="result" id="fluidResults"></div>
-    </div>
+    <div class="card-icon">📊</div>
+    <div>Medical Scores</div>
   </div>
-
-  <div class="footer">
-    تم بواسطة: د. عبدالوهاب عبد المنان الشيخ – طبيب طوارئ أطفال، طموح طبيب أسرة<br>
-    مطور تطبيق دواؤك في جيبك<br>
-    المراجع العلمية: UpToDate, BMJ, AMBOSS, Saudi Guidelines, Medscape
+  <div class="card">
+    <div class="card-icon">📈</div>
+    <div>Clinical Algorithms</div>
   </div>
+  <div class="card">
+    <div class="card-icon">📋</div>
+    <div>Quick References</div>
+  </div>
+  <div class="card">
+    <div class="card-icon">🧮</div>
+    <div>Calculators</div>
+  </div>
+  <div class="card">
+    <div class="card-icon">💊</div>
+    <div>Medications</div>
+  </div>
+</div>
 
-  <script>
-    const drugs = [
-      {
-        name: "باراسيتامول",
-        generic: "Paracetamol",
-        forms: ["شراب 120mg/5ml", "شراب 250mg/5ml", "أقراص 500mg", "تحاميل 125mg, 250mg"],
-        dosePediatricMgKg: "10-15 mg/kg كل 4-6 ساعات",
-        doseAdult: "500-1000mg كل 4-6 ساعات (الحد الأقصى 4 جم/يوم)",
-        warning: "يُستخدم بحذر في أمراض الكبد، لا تتجاوز الجرعة القصوى",
-        indications: "خافض حرارة، مسكن للألم الخفيف إلى المتوسط"
-      },
-      {
-        name: "أموكسيسيلين",
-        generic: "Amoxicillin",
-        forms: ["شراب 125mg/5ml", "شراب 250mg/5ml", "كبسولات 500mg"],
-        dosePediatricMgKg: "20-40 mg/kg/يوم مقسمة كل 8-12 ساعة",
-        doseAdult: "500mg كل 8 ساعات أو 875mg كل 12 ساعة",
-        warning: "تحسس من البنسلين، يستخدم بحذر في القصور الكلوي",
-        indications: "عدوى الجهاز التنفسي، التهابات الأذن، المسالك البولية"
-      }
-      // ⚠️ يمكنك إضافة أدوية أخرى هنا بنفس الشكل
-    ];
+<footer>
+  © 2025 Dr. Abdulwahab Abdulmannan AlSheikh – All rights reserved
+</footer>
 
-    function searchDrug() {
-      const input = document.getElementById("searchInput").value.toLowerCase();
-      const resultBox = document.getElementById("drugInfo");
-      resultBox.innerHTML = "";
+<script>
+function toggleTheme() {
+  document.body.classList.toggle("dark");
+  const icon = document.querySelector(".toggle-theme");
+  if (document.body.classList.contains("dark")) {
+    icon.textContent = "☀️";
+  } else {
+    icon.textContent = "🌙";
+  }
+}
+</script>
 
-      const found = drugs.find(drug => drug.name.toLowerCase().includes(input) || drug.generic.toLowerCase().includes(input));
-
-      if (found) {
-        resultBox.innerHTML = `
-          <h3>${found.name} (${found.generic})</h3>
-          <p><strong>💊 الأشكال المتوفرة:</strong> ${found.forms.join(", ")}</p>
-          <p><strong>👶 جرعة الأطفال:</strong> ${found.dosePediatricMgKg}</p>
-          <p><strong>🧑‍🦱 جرعة البالغين:</strong> ${found.doseAdult}</p>
-          <p><strong>⚠️ تحذيرات:</strong> ${found.warning}</p>
-          <p><strong>📌 دواعي الاستخدام:</strong> ${found.indications}</p>
-        `;
-      } else if (input.trim() !== "") {
-        resultBox.innerHTML = `<p>❗️لا يوجد دواء مطابق لنتيجة البحث.</p>`;
-      }
-    }
-
-    function calcFluids() {
-      const weight = parseFloat(document.getElementById("weight").value);
-      if (!weight || weight <= 0) return alert("❗️ أدخل وزن صحيح");
-
-      const bolus = weight * 20;
-      const maintenance = weight <= 10 ? weight * 100 : weight <= 20 ? (1000 + (weight - 10) * 50) : (1500 + (weight - 20) * 20);
-      const deficit5 = weight * 50;
-      const deficit7 = weight * 70;
-      const deficit10 = weight * 100;
-
-      document.getElementById("fluidResults").innerHTML = `
-        💉 <strong>Bolus:</strong> ${bolus} ml<br>
-        🔄 <strong>Maintenance:</strong> ${maintenance} ml/day<br>
-        🧪 <strong>Deficit:</strong><br>
-        • 5% = ${deficit5} ml<br>
-        • 7% = ${deficit7} ml<br>
-        • 10% = ${deficit10} ml
-      `;
-    }
-  </script>
 </body>
 </html>
