@@ -1,0 +1,147 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Screening in Family Medicine - Saudi Arabia</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f7fa;
+  color: #333;
+  margin: 0;
+  padding: 20px;
+}
+h1 {
+  text-align: center;
+  color: #006699;
+}
+.card {
+  background: white;
+  margin: 10px auto;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  width: 90%;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.card:hover {
+  background: #e6f2ff;
+}
+.card-content {
+  display: none;
+  margin-top: 10px;
+  font-size: 0.95em;
+}
+</style>
+</head>
+<body>
+
+<h1>Screening in Family Medicine<br>🇸🇦 Saudi Arabia</h1>
+
+<div class="card" onclick="toggleCard(this)">
+  <strong>Breast Cancer</strong>
+  <div class="card-content">
+    <p>Mammography for women ≥40 years every 2 years. National program available. Source: MOH, USPSTF, UpToDate.</p>
+  </div>
+</div>
+
+<div class="card" onclick="toggleCard(this)">
+  <strong>Cervical Cancer</strong>
+  <div class="card-content">
+    <p>Pap smear every 3 years from age 21–65. Source: MOH, USPSTF, UpToDate.</p>
+  </div>
+</div>
+
+<div class="card" onclick="toggleCard(this)">
+  <strong>Colorectal Cancer</strong>
+  <div class="card-content">
+    <p>FIT annually or colonoscopy every 10 years from age 45–75. Source: MOH, USPSTF, UpToDate.</p>
+  </div>
+</div>
+
+<div class="card" onclick="toggleCard(this)">
+  <strong>Diabetes Mellitus (Type 2)</strong>
+  <div class="card-content">
+    <p>Screen all adults ≥30 years, earlier if overweight or family history. Prevalence is high in Saudi Arabia. Source: MOH, UpToDate.</p>
+  </div>
+</div>
+
+<div class="card" onclick="toggleCard(this)">
+  <strong>Hypertension</strong>
+  <div class="card-content">
+    <p>Screen all adults ≥18 years annually. Source: MOH, UpToDate.</p>
+  </div>
+</div>
+
+<div class="card" onclick="toggleCard(this)">
+  <strong>Dyslipidemia</strong>
+  <div class="card-content">
+    <p>Screen adults ≥20 years if risk factors or ≥40 routinely. Source: MOH, UpToDate.</p>
+  </div>
+</div>
+
+<div class="card" onclick="toggleCard(this)">
+  <strong>Obesity</strong>
+  <div class="card-content">
+    <p>Measure BMI and waist circumference routinely. Obesity rates are high (>35%). Source: MOH, WHO.</p>
+  </div>
+</div>
+
+<div class="card" onclick="toggleCard(this)">
+  <strong>Hepatitis B & C</strong>
+  <div class="card-content">
+    <p>Screen high-risk individuals and HCV in those born before ~1970s. Source: MOH, CDC.</p>
+  </div>
+</div>
+
+<div class="card" onclick="toggleCard(this)">
+  <strong>Tuberculosis (TB)</strong>
+  <div class="card-content">
+    <p>Screen high-risk groups (contacts, healthcare workers, pilgrims). Source: MOH, WHO.</p>
+  </div>
+</div>
+
+<div class="card" onclick="toggleCard(this)">
+  <strong>Depression & Anxiety</strong>
+  <div class="card-content">
+    <p>Screen routinely using PHQ-9 and GAD-7. Source: MOH, USPSTF.</p>
+  </div>
+</div>
+
+<div class="card" onclick="toggleCard(this)">
+  <strong>Smoking & Substance Use</strong>
+  <div class="card-content">
+    <p>Ask all adults and adolescents about tobacco, shisha, and other substances. Source: MOH, WHO.</p>
+  </div>
+</div>
+
+<div class="card" onclick="toggleCard(this)">
+  <strong>Premarital Screening</strong>
+  <div class="card-content">
+    <p>Mandatory for couples planning to marry. Tests include sickle cell, thalassemia, hepatitis, HIV. Source: Saudi Premarital Program.</p>
+  </div>
+</div>
+
+<div class="card" onclick="toggleCard(this)">
+  <strong>Osteoporosis</strong>
+  <div class="card-content">
+    <p>Screen women ≥65 or younger if at risk using DEXA scan. Source: MOH, USPSTF.</p>
+  </div>
+</div>
+
+<script>
+function toggleCard(card) {
+  const content = card.querySelector(".card-content");
+  if (content.style.display === "block") {
+    content.style.display = "none";
+  } else {
+    content.style.display = "block";
+  }
+}
+</script>
+
+</body>
+</html>
