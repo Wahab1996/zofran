@@ -19,7 +19,6 @@ body {
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
   border: 2px solid #2c3e50;
-  position: relative;
 }
 h2 {
   text-align: center;
@@ -59,13 +58,6 @@ th {
   background-color: #3498db;
   color: white;
 }
-.note-print {
-  display: none;
-  text-align: center;
-  font-size: 0.8em;
-  color: #555;
-  margin-top: 20px;
-}
 @media print {
   body {
     background: white;
@@ -77,9 +69,6 @@ th {
   }
   button, .options {
     display: none;
-  }
-  .note-print {
-    display: block;
   }
 }
 </style>
@@ -105,10 +94,6 @@ th {
   <div class="result" id="result"></div>
 
   <button onclick="window.print()">Print Schedule</button>
-
-  <div class="note-print">
-    Note: This schedule applies equally to all patients regardless of age or gender.
-  </div>
 </div>
 
 <script>
