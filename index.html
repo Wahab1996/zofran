@@ -6,12 +6,16 @@
 <title>Family Medicine Tools</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
+html, body {
+  height: 100%;
+  margin: 0;
+}
 body {
   font-family: 'Inter', sans-serif;
-  margin: 0;
   background-color: #f7fafd;
   color: #333;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
 }
 header {
   background: linear-gradient(90deg, #0077b6, #0096c7);
@@ -28,6 +32,14 @@ header nav a {
   text-decoration: none;
   margin: 0 0.5rem;
   font-size: 0.9rem;
+}
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 h2 {
   color: #0077b6;
@@ -65,7 +77,8 @@ p {
   margin-bottom: 0.5rem;
 }
 footer {
-  margin: 1rem 0;
+  text-align: center;
+  padding: 1rem;
   font-size: 0.8rem;
   color: #777;
 }
@@ -81,47 +94,49 @@ footer {
   </nav>
 </header>
 
-<h2>Welcome</h2>
-<p>This app is a fast access for family medicine doctors.</p>
-<p><strong>Select a section to begin:</strong></p>
+<main>
+  <h2>Welcome</h2>
+  <p>This app is a fast access for family medicine doctors.</p>
+  <p><strong>Select a section to begin:</strong></p>
 
-<div class="container">
+  <div class="container">
 
-  <div class="card" onclick="location.href='scores/'">
-    <svg xmlns="http://www.w3.org/2000/svg"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-    <div>Medical Scores</div>
+    <div class="card" onclick="location.href='scores/'">
+      <svg xmlns="http://www.w3.org/2000/svg"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      <div>Medical Scores</div>
+    </div>
+
+    <div class="card" onclick="location.href='algorithms/'">
+      <svg xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 22h20L12 2z"/></svg>
+      <div>Clinical Algorithms</div>
+    </div>
+
+    <div class="card" onclick="location.href='references/'">
+      <svg xmlns="http://www.w3.org/2000/svg"><path d="M4 4h16v16H4z"/></svg>
+      <div>Quick References</div>
+    </div>
+
+    <div class="card" onclick="location.href='calculators/'">
+      <svg xmlns="http://www.w3.org/2000/svg"><path d="M5 3h14v18H5z"/></svg>
+      <div>Calculators</div>
+    </div>
+
+    <div class="card" onclick="location.href='medications/'">
+      <svg xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      <div>Medications</div>
+    </div>
+
+    <div class="card" onclick="location.href='screening/'">
+      <svg xmlns="http://www.w3.org/2000/svg"><path d="M4 4h16v16H4z"/></svg>
+      <div>Screening</div>
+    </div>
+
   </div>
 
-  <div class="card" onclick="location.href='algorithms/'">
-    <svg xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 22h20L12 2z"/></svg>
-    <div>Clinical Algorithms</div>
-  </div>
-
-  <div class="card" onclick="location.href='references/'">
-    <svg xmlns="http://www.w3.org/2000/svg"><path d="M4 4h16v16H4z"/></svg>
-    <div>Quick References</div>
-  </div>
-
-  <div class="card" onclick="location.href='calculators/'">
-    <svg xmlns="http://www.w3.org/2000/svg"><path d="M5 3h14v18H5z"/></svg>
-    <div>Calculators</div>
-  </div>
-
-  <div class="card" onclick="location.href='medications/'">
-    <svg xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
-    <div>Medications</div>
-  </div>
-
-  <div class="card" onclick="location.href='screening/'">
-    <svg xmlns="http://www.w3.org/2000/svg"><path d="M4 4h16v16H4z"/></svg>
-    <div>Screening</div>
-  </div>
-
-</div>
-
-<footer style="text-align:center; padding:1rem; font-size:0.9rem; color:#777;">
-  Empowering Family Physicians with reliable tools.
-</footer>
+  <footer>
+    Empowering Family Physicians with reliable tools.
+  </footer>
+</main>
 
 </body>
 </html>
